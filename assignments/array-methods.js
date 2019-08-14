@@ -460,7 +460,7 @@ const runners = [
 
 let fullName = [];
 runners.forEach(runner => {
-  fullName.push(runner.first_name, runner.last_name);
+  fullName.push(runner.first_name + " " + runner.last_name);
 });
 
 console.log(fullName);
@@ -500,7 +500,32 @@ console.log(ticketPriceTotal);
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
 // Problem 1
+//return the emails of every runner
+let emails = [];
+runners.forEach(runner => {
+  emails.push(runner.email);
+});
+console.log(emails);
 
 // Problem 2
+// The event managers want to know how much they will recieve in donations after tax. assuming taxes will take 8%, return the total net donations
+
+let afterTax = [];
+afterTax.push(
+  runners.reduce((total, donation) => {
+    return (total += donation.donation * 0.8);
+  }, 0)
+);
+
+console.log(Math.round(afterTax));
 
 // Problem 3
+//the event manager wants to personally thanks everyone that donated over 200 dollars. filter out everyone who donated 200 or more and make a new array
+let friends = [];
+friends.push(
+  runners.filter(runner => {
+    return runner.donation > 200;
+  })
+);
+
+console.log(friends);

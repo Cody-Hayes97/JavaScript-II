@@ -43,11 +43,11 @@ last(items, function(last) {
 
 function sumNums(x, y, cb) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
-  return cb(x - y);
+  return cb(x + y);
 }
 
-sumNums(1, 2, difference => {
-  console.log(difference);
+sumNums(1, 2, add => {
+  console.log(add);
 });
 
 function multiplyNums(x, y, cb) {
@@ -81,4 +81,4 @@ function removeDuplicates(array, cb) {
   return noDupes;
 }
 
-console.log(removeDuplicates(items));
+console.log(removeDuplicates([1, 1, 1, 2, 2, 2, 3, 3, 3]));
